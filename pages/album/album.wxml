@@ -1,0 +1,49 @@
+<view class="container">
+  <view class="content" style='height: {{contentHeight - 52}}px'>
+    <view class="image-panel">
+      <checkbox-group class="panel-show">
+        <view class="upload-btn" style='width: {{imageHeight}}px; height: {{imageHeight}}px;'>
+          <button bindtap='uploadImage' disabled='{{isDisable}}'>
+            <image src='{{uploadBtnImg}}'></image>
+          </button>
+        </view>
+        <block wx:for='{{imageList}}' wx:key='index'>
+          <label for="{{index}}" class="image-item" style='width: {{imageHeight}}px; height: {{imageHeight}}px;'>
+            <checkbox id='{{index}}' checked='{{index}}'></checkbox>
+            <image src='{{item.src}}' mode='widthFix'></image>
+          </label>
+        </block>
+      </checkbox-group>
+      <!-- <view class="panel-explain">
+        <text>关联喜帖吧账号同步相册</text>
+      </view> -->
+    </view>
+  </view>
+  <view class="footer" wx:if='{{!isManage}}'>
+    <view class="mode-content">
+      <view class="album-mode" wx:if='{{chooseMode}}'>
+        <button id='mode01' bindtap='selectMode'> 旋转木马 </button>
+        <button id='mode02' bindtap='selectMode'> 梦幻百叶 </button>
+        <button id='mode03' bindtap='selectMode'> 3D魔方 </button>
+      </view>
+      <view class="select-mode" bindtap='changeMode'>
+        <text>{{modeName}}</text>
+        <image src='{{modeArrow}}' mode='widthFix'></image>
+      </view>
+    </view>
+    <view class="manage-panel">
+      <view class="action-panel" wx:if='{{showPanel}}'>
+        <button id='synchro' bindtap='toSynchro'> 关联喜帖吧账号 </button>
+        <button id="delete" bindtap='toDelete'> 删除照片 </button>
+      </view>
+      <view class="album-manage" bindtap='manageAlbum'>
+        <text>相册管理</text>
+        <image src='{{modeArrow}}' mode='widthFix'></image>
+      </view>
+    </view>
+  </view>
+  <view class="footer" wx:else>
+    <button class="delete-action" bindtap='deleteAction'> 删除 </button>
+    <button class="cancel-action" bindtap='cancelAction'> 取消 </button>
+  </view>
+</view>

@@ -1,0 +1,45 @@
+<view class="container">
+
+  <view class="header">
+    <!-- 头部栏 -->
+    <view class="packet-info">
+      <view class="main-person-info">
+        <view class="main-person-head"><image src='{{mainPersonHead}}' mode='widthFix'></image></view>
+        <view class="main-person-info">
+          <view> {{personName}} </view>
+          <view> {{personPacketMsg}}</view>
+        </view>
+      </view>
+      <view class="packet-total"><text> {{packetTotal}} </text>元</view>
+    </view>
+  </view>
+
+  <view class="content">
+    <!-- 正文栏 -->
+    <view class="packet-assign-info">
+      <view class="assign-info-title">{{packetAssignInfo}}</view>
+      <view class="assign-info-list">
+        <block wx:for='{{assignInfoList}}' wx:key='index'>
+          <view class="assign-info-item">
+            <view class="assign-person-info">
+              <view class="assign-person-head"><image src='{{item.personHead}}' mode='widthFix'></image></view>
+              <view class="assign-person-info">
+                <view> {{item.personName}} </view>
+                <view> {{item.assignDate}} </view>
+              </view>
+            </view>
+            <view class="assign-person-gain">
+              <view>{{item.packetGain}} 元</view>
+              <view> {{item.gainText}} </view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+
+  <view class="footer">
+    <!-- 底部栏 -->
+  </view>
+
+</view>

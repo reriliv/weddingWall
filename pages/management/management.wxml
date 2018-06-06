@@ -1,0 +1,46 @@
+<view class="containor">
+  <view class="header">
+    <view class="barrage-action">
+      <text class='{{isCheck ? "able-wall" : "disable-wall"}}'>弹幕自动上墙</text>
+      <switch bindchange='autoPlay'></switch>
+    </view>
+  </view>
+  <view class="content" style='height: {{contentHeight}}px'>
+
+    <view class="barrage-content" wx:if='{{!isCheck}}'>
+      <block wx:for='{{barrageList}}' wx:key='index'>
+        <view class="barrage-item" wx:if='{{item.statusCode !== 2}}'>
+          <checkbox class='barrage-select'>
+            <view class="barrage-head"><image src='{{item.barrageHead}}' mode='widthFix'></image></view>
+            <view class="barrage-info">
+              <view class="barrage-status"><text>{{item.barrageName}}</text><text>{{item.barrageTime}}</text><text class='{{item.barrageStatusStyle}}'>{{item.barrageStatus}}</text></view>
+              <view class="barrage-text">{{item.barrageText}}</view>
+            </view>
+          </checkbox>
+        </view>
+      </block>
+    </view>
+
+    <view class="barrage-content" wx:else>
+      <block wx:for='{{barrageList}}' wx:key='index'>
+        <view class="barrage-item" wx:if='{{item.statusCode !== 0}}'>
+          <checkbox class='barrage-select'>
+            <view class="barrage-head"><image src='{{item.barrageHead}}' mode='widthFix'></image></view>
+            <view class="barrage-info">
+              <view class="barrage-status"><text>{{item.barrageName}}</text><text>{{item.barrageTime}}</text><text class='{{item.barrageStatusStyle}}'>{{item.barrageStatus}}</text></view>
+              <view class="barrage-text">{{item.barrageText}}</view>
+            </view>
+          </checkbox>
+        </view>
+      </block>
+    </view>
+
+  </view>
+  <view class="footer">
+    <view class="manage-action">
+      <button class="shield-action" wx:if='{{isCheck}}' catchtap='hideBarrage'>屏蔽</button>
+      <button class="send-action" wx:else catchtap='onWall'>上墙</button>
+      <button class='delete-action'>删除</button>
+    </view>
+  </view>
+</view>

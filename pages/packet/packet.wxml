@@ -1,0 +1,94 @@
+<view class="container">
+
+  <view class="header">
+    <view class='date-select'>
+      <button bindtap='dateSelectAction'>
+        <text> {{recordYear}}年{{recordMonth}}月 </text>
+        <image src='../../src/image/arrow_bottom_icon.png'></image>
+      </button>
+      <checkbox-group bindchange='showMineAction'>
+        <checkbox value='showMinePacket'> 只显示我参与的红包 </checkbox>
+      </checkbox-group>
+    </view>
+  </view>
+
+  <view class="content">
+    <view class="record-list">
+      <block wx:for='{{recordList}}' wx:key='index'>
+        <block wx:if='{{showMine}}'>
+          <!-- 只显示自己参与的 -->
+          <!-- <text>{{showMine && item.isMine}}</text> -->
+          <block wx:if='{{item.isMine}}'>
+            <navigator class="record-item" url='../packetDetail/packetDetail?date={{item.prizeDateYear}}-{{item.prizeDateMonth}}-{{item.prizeDateDay}}'>
+              <view class="record-vistor-info">
+                <view class="visitor-head">
+                  <image src='{{item.visitorHead}}' mode='widthFix'></image>
+                </view>
+                <view class='visitor-info'>
+                  <view>
+                    <text> {{item.visitorNickName}} </text>
+                    <text class=""> {{item.prizeLabel}} </text>
+                  </view>
+                  <view>
+                    <text> {{item.prizeDateMonth}}月{{item.prizeDateDay}}日 </text>
+                    <text> {{item.prizeTime}} </text>
+                  </view>
+                </view>
+              </view>
+              <view class="recordPrizeName"><text> {{item.prizeName}} </text></view>
+            </navigator>
+          </block>
+        </block>
+        <block wx:else>
+          <!-- 显示所有记录 -->
+          <navigator class="record-item" url='../packetDetail/packetDetail?date={{item.prizeDateYear}}-{{item.prizeDateMonth}}-{{item.prizeDateDay}}'>
+            <view class="record-vistor-info">
+              <view class="visitor-head">
+                <image src='{{item.visitorHead}}' mode='widthFix'></image>
+              </view>
+              <view class='visitor-info'>
+                <view>
+                  <text> {{item.visitorNickName}} </text>
+                  <text class=""> {{item.prizeLabel}} </text>
+                </view>
+                <view>
+                  <text> {{item.prizeDateMonth}}月{{item.prizeDateDay}}日 </text>
+                  <text> {{item.prizeTime}} </text>
+                </view>
+              </view>
+            </view>
+            <view class="recordPrizeName"><text> {{item.prizeName}} </text></view>
+          </navigator>
+        </block>
+      </block>
+    </view>
+    <view class="shade-content" wx:if='{{show}}' bindtap='cancelAction'></view>
+    <view class="date-panel" wx:if='{{show}}'>
+      <view class="date-panel-title"><text> {{selectorYear}}年{{selectorMonth}}月 </text></view>
+      <view class="date-panel-selector">
+        <swiper class='date-year-swiper' vertical='{{true}}' interval='{{150}}' previous-margin='{{105}}rpx' next-margin='{{105}}rpx' bindchange='chooseYear' current='{{yearIndex}}'>
+          <block wx:for='{{dateYearList}}' wx:key='index'>
+            <swiper-item>{{item.year}}</swiper-item>
+          </block>
+        </swiper>
+        <swiper class="date-month-swiper" vertical='{{true}}' interval='{{150}}' previous-margin='{{105}}rpx' next-margin='{{105}}rpx' bindchange='chooseMonth' current='{{monthIndex}}'>
+          <block wx:for='{{dateMonthList}}' wx:key='index'>
+            <swiper-item>{{item.month}}</swiper-item>
+          </block>
+        </swiper>
+      </view>
+      <view class="date-panel-action">
+        <button bindtap='cancelAction'> 取消 </button>
+        <button bindtap='sureAction'> 确定 </button>
+      </view>
+    </view>
+  </view>
+
+  <view class="footer">
+    <button class='send-packet' bindtap='sendPacketAction'>
+      <image src='../../src/image/packet_icon.png' mode='widthFix'></image>
+      <text> 去发红包 </text>
+    </button>
+  </view>
+
+</view>

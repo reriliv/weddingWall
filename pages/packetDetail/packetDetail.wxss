@@ -1,0 +1,26 @@
+page{ background: #fff; }
+
+.header{ border-bottom: 10rpx solid #eee; }
+.packet-info{ display: flex; justify-content: space-between; align-items: center; margin: 0 20rpx; height: 196rpx; }
+.main-person-head{ display: inline-block; vertical-align: middle; margin-right: 28rpx; width: 100rpx; height: 100rpx; border: 4rpx solid #ff2b2d; border-radius: 10rem; overflow: hidden; }
+.main-person-info{ display: inline-block; vertical-align: middle; }
+.main-person-info view, .assign-person-info view{ font-size: 32rpx; color: #363636; }
+.main-person-info view:last-child, .assign-person-info view:last-child{ margin-top: 10rpx; font-size: 24rpx; color: #9c9c9c; }
+.packet-total{ font-size: 32rpx; color: #363636; }
+.packet-total text{ margin-right: 13rpx; font-size: 48rpx; }
+
+
+
+.content{  }
+.assign-info-item{ display: flex; justify-content: space-between; align-items: center; margin: 0 20rpx; height: 110rpx; }
+.assign-person-head{ display: inline-block; vertical-align: middle; margin-right: 12rpx; width: 64rpx; height: 64rpx; border-radius: 10rem; overflow: hidden; }
+.assign-person-info{ display: inline-block; vertical-align: middle; }
+.assign-info-title{ margin: 0 20rpx; padding: 48rpx 0 10rpx; text-align: left; font-size: 24rpx; color: #9c9c9c; }
+.assign-person-gain{ text-align: right; }
+.assign-person-gain view{ font-size: 28rpx; color: #363636; }
+.assign-person-gain view:last-child{ margin-top: 12rpx; font-size: 24rpx; color: #ff2b2d; }
+
+
+
+
+.footer{  }

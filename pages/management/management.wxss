@@ -1,0 +1,21 @@
+.header, .footer{ height: 100rpx; overflow: hidden; }
+.header{ border-top: 2rpx solid #eee; }
+.barrage-action{ display: flex; justify-content: space-between; padding: 0 37rpx; line-height: 100rpx; }
+.able-wall{ color: rgb(54, 54, 54); font-size: 36rpx; }
+.disable-wall{ color: rgb(210, 210, 210); font-size: 36rpx; }
+
+.content{ background: #eee; }
+.barrage-item{ padding: 0 37rpx; /* height: 136rpx; */ border-bottom: 2rpx solid rgb(220, 220, 220); }
+.barrage-select{ padding: 27rpx 0; width: 100%; }
+.barrage-head, .barrage-info{ display: inline-block; vertical-align: middle; }
+.barrage-head{ width: 84rpx; height: 84rpx; border-radius: 10rem; overflow: hidden; }
+.barrage-info{ margin-left: 20rpx;  width: 482rpx;  }
+.barrage-status{ display: flex; justify-content: space-between; margin-bottom: 20rpx; font-size: 20rpx; color: rgb(156, 156, 156); }
+.barrage-text{ font-size: 26rpx; color: rgb(54, 54, 54); }
+.out-wall{ color: rgb(54, 54, 54); }
+.on-wall{ color: rgb(72, 240, 183); }
+.on-hide{ color: rgb(255, 161, 162); }
+
+.manage-action{ display: flex; justify-content: space-between; align-items: center; padding: 0 37rpx; height: 100%; }
+.shield-action, .send-action, .delete-action{ display: inline-block; height: 62rpx; line-height: 60rpx; font-size: 32rpx; color: rgb(54, 54, 54); border: 2rpx solid rgb(156, 156, 156); border-radius: 31rpx; }
+.send-action{ background: rgb(72, 240, 183); color: rgb(255, 255, 255); border: 2rpx solid rgb(72, 240, 183); }

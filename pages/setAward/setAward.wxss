@@ -1,0 +1,38 @@
+page{ background: #fff; }
+
+/* 头部栏样式 */
+.header{ position: fixed; top: 0; left: 0; z-index: 9999999; display: flex; justify-content: center; align-items: center; width: 100%; background: #fff; border-top: 2rpx solid #e5e5e5; }
+.increase-award-action, .copy-award-action{ display: flex; justify-content: center; align-items: center; padding: 0; margin: 0; width: 49%; height: 60rpx; line-height: 60rpx; }
+.increase-award-action image{ margin-right: 6rpx; width: 24rpx; height: 24rpx; }
+.copy-award-action image{ margin-right: 6rpx; width: 30rpx; height: 30rpx; }
+.increase-award-action text, .copy-award-action text{ font-size: 24rpx; color: #363636; }
+.cut-off{ height: 24rpx; border-left: 1rpx solid #dcdcdc; border-right: 1rpx solid #dcdcdc; }
+
+
+/* 正文样式 */
+.content{ margin-top: 62rpx; padding-top: 16rpx; width: 100%; background: #eee; overflow: hidden; }
+.scroll-content{ overflow: auto; }
+/*.award-list{ overflow: auto; }*/
+.award-item{ margin-bottom: 10rpx; }
+.award-title{ padding: 0 21rpx; height: 60rpx; line-height: 60rpx; text-align: left; background: #fff; font-size: 24rpx; color: #363636; }
+.award-content{ border-top: 2rpx solid #e5e5e5; }
+.award-name, .award-icon, .award-explain, .award-people-num{ display: flex; justify-content: space-between; align-items: center; padding: 0 21rpx; height: 80rpx; background: #fff; font-size: 26rpx; color: #363636; }
+.award-icon{ justify-content: center; }
+.award-icon-list{ display: flex; justify-content: space-between; align-items: center; }
+.award-icon-list radio-group{ display: flex; justify-content: flex-start; align-items: center; margin: 0 5rpx; width: 460rpx; }
+.award-icon-list label{ display: flex; justify-content: space-around; align-items: center; padding: 0 12rpx; width: 66rpx; height: 37rpx; }
+.award-icon-list label radio{ margin-right: 10rpx; width: 32rpx; height: 32rpx; line-height: 0; }
+.award-icon-list image{ width: 32rpx; height: 37rpx; }
+.custom-action{ display: flex; justify-content: flex-start; align-items: center; margin: 0; padding: 0; width: 111rpx; font-size: 28rpx; color: #363636; }
+.custom-action image{ width: 24rpx; height: 24rpx; }
+.award-icon-list radio .wx-radio-input{ border-radius: 50%; width: 26rpx; height: 26rpx; }
+.award-icon-list radio .wx-radio-input.wx-radio-input-checked{ background: red; }
+.award-icon-list radio .wx-radio-input.wx-radio-input-checked::before{ border-radius: 50%; width: 26rpx; height: 26rpx; line-height: 26rpx; text-align: center; font-size: 20rpx; color: #fff; background: transparent; transform: translate(-50%, -50%) scale(1); -webkit-transform: translate(-50%, -50%) scale(1); }
+.save-setting{ padding: 25rpx 0 58rpx; background: #fff; }
+.save-setting button{ margin: 0 auto; width: 706rpx; height: 60rpx; text-align: center; line-height: 60rpx; background: #ff2b2d; border-radius: 10rem; color: #fff; font-size: 32rpx; }
+.award-name input, .award-explain input, .award-explain input, .award-people-num input{ width: 579rpx; border-bottom: 2rpx slid #dcdcdc; }
+
+
+
+/* 底部栏样式 */
+.footer{  }

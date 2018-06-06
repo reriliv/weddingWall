@@ -1,0 +1,234 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="header" style='height: {{headerHeight}}px'>
+    <view class="banner">
+      <image src='{{imgSrc}}' mode='widthFix'></image>
+    </view>
+    <view class="qr-code" style='height:{{QRHeight}}px' wx:if='{{showCode}}'>
+      <image src='{{qrImgSrc}}'></image>
+    </view>
+    <view class="prize-draw-top-panel">
+      <image src='../../src/image/prize_panel_border.png' mode='widthFix' class='prize-top-panel-background'></image>
+      <view class="prize-top-panel-info">
+
+        <view class="info-name"><text> 互动抽奖 </text></view>
+
+        <view class="turbo-prize-top-info">
+          <view class="prize-goal">
+            <view class="prize-goal-top-arrow"></view>
+            <swiper class="prize-goal-swiper"
+                    duration='{{prize_slide_time}}'
+                    vertical='{{prize_slide_vertical}}'
+                    circular='{{prize_slide_circular}}'
+                    autoplay='{{prize_slide_autoplay}}'
+                    interval='{{prize_slide_interval}}'
+                    bindanimationfinish='specifyAction'>
+              <block wx:if='{{prizePersonList}}'>
+                <block wx:for='{{prizePersonList}}' wx:key='index'>
+                  <swiper-item class="prize-goal-item">
+                    <view class="prize-person-head"><image src='{{item.personHead}}' mode='widthFix'></image></view>
+                    <view class="prize-person-name"><text> {{item.personName}} </text></view>
+                  </swiper-item>
+                </block>
+              </block>
+              <block wx:else>
+                <swiper-item class="prize-goal-item">
+                  <view class="prize-person-head"><image src='{{item.personHead}}' mode='widthFix'></image></view>
+                  <view class="prize-person-name"><text> {{item.personName}} </text></view>
+                </swiper-item>
+              </block>
+            </swiper>
+            <view class="prize-goal-bottom-arrow"></view>
+          </view>
+          <view class="prize-qrcode">
+            <view class="qr-code-image"><image src='../../src/image/content_icon_erweima_default@2x.png' mode='widthFix'></image></view>
+            <view> 微信扫描 </view>
+            <view> 参与抽奖 </view>
+          </view>
+        </view>
+
+        <!-- 高级抽奖
+        <view class="high-prize-top-info" wx:if='{{secondNavTap}}'>
+          view.
+        </view>
+        
+        弹幕抽奖
+        <view class="barrage-prize-top-info" wx:if='{{thirdNavTap}}'>
+          
+        </view> -->
+
+      </view>
+
+    </view>
+  </view>
+  <view class="content" style='height: {{contentHeight}}px'>
+    <!-- 中部控制按钮 -->
+    <view class="control-bar" style='height: {{footerHeight}}px;'>
+      <view class="control-item" style='width:{{controlItemWidth}}px'><button bindtap='turboModeAction' style='line-height:{{footerHeight}}px;'><text class='{{firstPrizePanel ? "active" : "static"}}'> 急速抽奖 </text></button></view>
+      <view class="control-item" style='width:{{controlItemWidth}}px'><button bindtap='highModeAction' style='line-height:{{footerHeight}}px;'><text class='{{secondPrizePanel ? "active" : "static"}}'> 高级抽奖 </text></button></view>
+      <view class="control-item" style='width:{{controlItemWidth}}px'><button bindtap='barrageModeAction' style='line-height:{{footerHeight}}px;'><text class='{{thirdPrizePanel ? "active" : "static"}}'> 弹幕抽奖 </text></button></view>
+    </view>
+
+    <!-- 活动抽奖 -->
+    <view class="prize-draw-panel" style='top: {{footerHeight + headerHeight}}px; height: {{contentHeight}}px'>
+      <!-- <view class="prize-draw-nav">
+        <button class='{{firstNavTap ? "prize-draw-item-active" : "prize-draw-item"}}' bindtap=''> 急速抽奖 </button>
+        <button class='{{secondNavTap ? "prize-draw-item-active" : "prize-draw-item"}}' bindtap=''> 高级抽奖 </button>
+        <button class='{{thirdNavTap ? "prize-draw-item-active" : "prize-draw-item"}}' bindtap=''> 弹幕抽奖 </button>
+      </view> -->
+      <!-- 急速模式抽奖 -->
+      <view class="prize-draw-content" wx:if='{{firstPrizePanel}}'>
+        <view class="turbo-mode-prize">
+          <view class="turbo-mode-explain">
+            <view> 宾客扫描大屏二维码 </view>
+            <view> 快速抽出一名幸运儿 </view>
+          </view>
+          <view class="turbo-click-animate"><image src='../../src/image/click_icon.png' mode='widthFix'></image></view>
+          <block wx:if='{{!startAwardPrize}}'>
+            <button class="start-award-action" bindtap='startTurboAwardAction'>
+              <image src='../../src/image/start_award_open_icon.jpg' mode='widthFix'></image>
+              <text> 开始 </text>
+            </button>
+          </block>
+          <block wx:else>
+            <button class="start-award-action" bindtap='specifyBarrageAwardAction'>
+              <image src='../../src/image/start_award_open_icon.jpg' mode='widthFix'></image>
+              <text> 抽取 </text>
+            </button>
+          </block>
+        </view>
+      </view>
+
+      <!-- 高级模式抽奖 -->
+      <view class="prize-draw-content" wx:if='{{secondPrizePanel}}'>
+        <view class="high-mode-prize">
+          <block wx:if='{{awardList.length}}'>
+            <radio-group class="award-list">
+              <block wx:for='{{awardList}}' wx:key='index'>
+                <radio disabled='{{!item.awardNumber}}'>
+                  <view class='{{item.awardNumber ? "award-item" : "award-item-disable"}}'>
+                    <view class="award-info">
+                      <image src='{{item.awardImage}}' mode='widthFix'></image>
+                      <text> {{item.awardName}} </text>
+                    </view>
+                    <view class="award-msg">
+                      <text> 还剩{{item.awardNumber}}个 </text>
+                    </view>
+                  </view>
+                </radio>
+              </block>
+            </radio-group>
+          </block>
+          <block wx:else>
+            <view class='award-explain'><text> 请先进行奖项设置 </text></view>
+          </block>
+          <view class="prize-draw-action">
+            <block wx:if='{{!awardList.length}}'>
+              <view class="to-set-award"><image src='../../src/image/click_icon.png' mode='widthFix'></image></view>
+            </block>
+            <navigator class="set-award-action" url='../setAward/setAward' bindtap='setAwardAction'>
+              <view><image src='../../src/image/set_icon.png' mode='widthFix'></image></view>
+              <view><text> 奖项设置 </text></view>
+            </navigator>
+            <block wx:if='{{!startAwardPrize}}'>
+              <button class="start-award-action" bindtap='startHighAction'>
+                <image src='../../src/image/start_award_open_icon.jpg' mode='widthFix'></image>
+                <text> 开始 </text>
+              </button>
+            </block>
+            <block wx:else>
+              <button class="start-award-action" bindtap='specifyBarrageAwardAction'>
+                <image src='../../src/image/start_award_open_icon.jpg' mode='widthFix'></image>
+                <text> 抽取 </text>
+              </button>
+            </block>
+            <navigator class="check-award-action" url='../awardRecord/awardRecord' bindtap='checkAwardAction'>
+              <view><image src='../../src/image/check_icon.png' mode='widthFix'></image></view>
+              <view><text> 中奖记录 </text></view>
+            </navigator>
+          </view>
+        </view>
+      </view>
+
+      <!-- 弹幕模式抽奖 -->
+      <view class="prize-draw-content" wx:if='{{thirdPrizePanel}}'>
+        <view class="barrage-prize-panel">
+          <view class="barrage-prize-explain">
+            <text> 输入指定口令 --> 点击 <text>发布</text> 完成大屏提示 --> 按 <text>开始</text> 进行抽奖 </text>
+          </view>
+          <view class="barrage-command">
+            <view class='command-name'><text> 指定口令: </text></view>
+            <view class="command-barrage-input"><input type="text" placeholder='请输入口令' placeholder-style='color: #d2d2d2;' /></view>
+            <button class="command-release-action" bindtap='commandReleaseAction' disabled='{{hasSetToken}}'> 发布 </button>
+          </view>
+          <block wx:if='{{barrageAwardList.length}}'>
+            <radio-group class="barrage-award-list" bindchange='changeRadioIndex'>
+              <block wx:for='{{barrageAwardList}}' wx:key='index'>
+                <radio disabled='{{!item.awardNumber}}' value='{{index}}' checked='{{!index}}'>
+                  <view class='{{item.awardNumber ? "award-item" : "award-item-disable"}}'>
+                    <view class="award-info">
+                      <image src='{{item.awardImage}}' mode='widthFix'></image>
+                      <text> {{item.awardName}} </text>
+                    </view>
+                    <view class="award-msg">
+                      <text> 还剩{{item.awardNumber}}个 </text>
+                    </view>
+                  </view>
+                </radio>
+              </block>
+            </radio-group>
+          </block>
+          <block wx:else>
+            <view class='award-explain'><text> 请先进行奖项设置 </text></view>
+          </block>
+        </view>
+        <view class="prize-draw-action">
+          <button class="set-award-action" bindtap='setAwardAction'>
+            <view><image src='../../src/image/set_icon.png' mode='widthFix'></image></view>
+            <view><text> 奖项设置 </text></view>
+          </button>
+          <!-- <button class="screen-tips" bindtap='showScreenTips'>
+            <view class='screen-tips-icon'><image src='../../src/image/screen_tips_close_icon.png' mode='widthFix'></image></view>
+            <view class='screen-tips-name-open'><text> 大屏提示 </text></view>
+          </button> -->
+          <block wx:if='{{!startAwardPrize}}'>
+            <button class="start-award-action barrage-position" bindtap='startBarrageAwardAction'>
+              <image src='../../src/image/start_award_open_icon.jpg' mode='widthFix'></image>
+              <text> 开始 </text>
+            </button>
+          </block>
+          <block wx:else>
+            <button class="start-award-action barrage-position" bindtap='specifyBarrageAwardAction'>
+              <image src='../../src/image/start_award_open_icon.jpg' mode='widthFix'></image>
+              <text> 抽取 </text>
+            </button>
+          </block>
+          <button class="check-award-action" bindtap='checkAwardAction'>
+            <view><image src='../../src/image/check_icon.png' mode='widthFix'></image></view>
+            <view><text> 中奖记录 </text></view>
+          </button>
+          <!-- <button class="prize-panel" bindtap='checkAwardAction'>
+            <view class='prize-panel-icon'><image src='../../src/image/prize_panel_close_icon.png' mode='widthFix'></image></view>
+            <view class='prize-panel-name-open'><text> 抽奖面板 </text></view>
+          </button> -->
+        </view>
+      </view>
+
+      <!-- <view class="back-btn"><button bindtap='prizeBackAction'><image src='{{prize_back_icon}}'></image><text> 返回 </text></button></view> -->
+
+      <view class="cancel-btn"><button bindtap='prizeCancelAction'><image src='{{prize_cancel_icon}}'></image><text> 取消抽奖 </text></button></view>
+    </view>
+
+  </view>
+  <view class="footer" style='height: {{footerHeight}}px; line-height: {{footerHeight}}px'>
+    <!-- 底部文本框 -->
+    <block wx:if='{{showMsg}}'>
+      <view class="message-shade"></view>
+      <view class="message-panel">
+        <view class="message-title"> 奖项已抽取完毕 </view>
+        <view class="message-content"> 即将重置奖项数目 </view>
+        <button class="message-action" bindtap='reSetAction'> 关闭 </button>
+      </view>
+    </block>
+  </view>
+</view>

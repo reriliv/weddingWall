@@ -1,0 +1,48 @@
+<view class="container">
+
+  <view class="header">
+    <view class="acount-image"><image src='{{acountImageSrc}}' mode='widthFix'></image></view>
+    <view class="acount-name"><text>{{acountName}}</text></view>
+  </view>
+
+  <view class="content">
+    <form bindsubmit='loginSubmit' bindreset='loginReset'>
+      <view class="input-item">
+        <view class="phone-icon"><image src='{{phoneIcon}}' mode='widthFix'></image></view>
+        <view class="phone-input"><input type="text" bindinput='phoneAction' placeholder='请输入手机账号' placeholder-style='color: #dfdfdf'/></view>
+        <view class="identify-btn"><button id='check' bindtap='identifyAction' disabled='{{identifyDisabled}}'><text> {{getIdentifyAction}} </text><text wx:if='{{countingTime}}'>({{reSendTime}}s)</text></button></view>
+      </view>
+      <view class="tips"><text wx:if='{{isPhoneTips}}'>{{phoneTips}}</text></view>
+      <view class="input-item">
+        <view class="guard-icon"><image src='{{guardIcon}}' mode='widthFix'></image></view>
+        <view class="identify-input"><input type="text" bindinput='guardAction' placeholder='请输入校验码' placeholder-style='color: #dfdfdf'/></view>
+      </view>
+      <view class="tips"><text wx:if='{{isIdentifyTips}}'>{{identifyTips}}</text></view>
+      <view class="{{canClick ? 'bind-btn active' : 'bind-btn static'}}">
+        <button bindtap='bindAction'> 确认绑定 </button>
+      </view>
+    </form>
+    <view class="success-panel" wx:if='{{successBinding}}'>
+      <view class="success-content">
+        <view class="bind-message"><text>绑定微信号成功</text></view>
+        <view class="success-content-msg"><text>正在同步相册</text></view>
+        <view class="success-content-suggest">即将返回相册</view>
+        <view class="success-image"><image src='{{successImageSrc}}' mode='widthFix'></image></view>
+      </view>
+    </view>
+    <view class="failure-panel" wx:if='{{failureBinding}}'>
+      <view class="failure-btn"><button bindtap='closeFailurePanel'><image mode='widthFix' src='{{closeBtnImg}}'></image></button></view>
+      <view class="failure-content">
+        <view class="bind-message"><text>绑定微信号失败</text></view>
+        <view class="failure-content-msg"><text>可能网络开小差了</text></view>
+        <view class="failure-content-suggest"><text>请返回重新绑定</text></view>
+        <view class="failure-image"><image src='{{failureImageSrc}}' mode='widthFix'></image></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="footer"></view>
+
+  <view class="shade-content" wx:if='{{showShade}}'></view>
+
+</view>

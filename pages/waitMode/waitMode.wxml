@@ -1,0 +1,111 @@
+<view class="container">
+
+  <view class="header">
+    <view class="mode-bar">
+      <view class="mode-title">
+        <text>候场主题</text>
+      </view>
+      <view class="mode-list">
+        <radio-group>
+          <radio checked='{{isMarry}}' id='marry' bindtap='chooseMode'>婚宴</radio>
+          <radio checked='{{isBirthday}}' id='birthday' bindtap='chooseMode'>生日</radio>
+          <radio checked='{{isBusiness}}' id='business' bindtap='chooseMode'>商务</radio>
+        </radio-group>
+      </view>
+    </view>
+  </view>
+
+  <view class="content" style='min-height: {{contentHeight}}px'>
+
+      <view wx:if='{{isMarry}}'>
+        <view class="set-info">
+          <view class="content-title" bindtap='changeInfoState'><text>文字设置</text></view>
+          <view class="setting-list" wx:if='{{showInfo}}'>
+            <view class="setting-item" wx:for='{{marryList}}' wx:key='index'>
+              <text>{{item.marryName}}：</text>
+              <input type="text" placeholder='请输入' />
+            </view>
+          </view>
+        </view>
+
+        <view class="set-background">
+          <view class="set-title" bindtap='changeMainTitleState'><text>背景设置</text></view>
+          <view wx:if='{{showMainTitle}}'>
+            <view class="main-title-list" wx:if='{{delete}}'>
+              <view class="main-title-item" wx:for='{{marryMainTitleList}}' wx:key='index' bindlongpress='selectAction'><image src='{{item.background}}' mode='widthFix'></image></view>
+            </view>
+            <radio-group class="main-title-list" wx:else>
+              <label class="main-title-item" wx:for='{{marryMainTitleList}}' wx:key='index' for="check-{{index}}">
+                <radio id='check-{{index}}' checked='{{!index}}'></radio>
+                <image src='{{item.background}}' mode='widthFix'></image>
+              </label>
+            </radio-group>
+          </view>
+        </view>
+
+        <view class="save-action"><button bindtap='saveAction'> 保存全部 </button></view>
+      </view>
+
+      <view wx:if='{{isBirthday}}'>
+        <view class="set-info">
+          <view class="content-title" bindtap='changeInfoState'><text>文字设置</text></view>
+          <view class="setting-list" wx:if='{{showInfo}}'>
+            <view class="setting-item" wx:for='{{birthList}}' wx:key='index'>
+              <text>{{item.birthName}}：</text>
+              <input type="text" placeholder='请输入' />
+            </view>
+          </view>
+        </view>
+
+        <view class="set-background">
+          <view class="set-title" bindtap='changeMainTitleState'><text>背景设置</text></view>
+          <view wx:if='{{showMainTitle}}'>
+            <view class="main-title-list" wx:if='{{delete}}'>
+              <view class="main-title-item" wx:for='{{birthMainTitleList}}' wx:key='index' bindlongpress='selectAction'><image src='{{item.background}}' mode='widthFix'></image></view>
+            </view>
+            <radio-group class="main-title-list" wx:else>
+              <label class="main-title-item" wx:for='{{birthMainTitleList}}' wx:key='index' for="check-{{index}}">
+                <radio id='check-{{index}}' checked='{{!index}}'></radio>
+                <image src='{{item.background}}' mode='widthFix'></image>
+              </label>
+            </radio-group>
+          </view>
+        </view>
+
+        <view class="save-action"><button bindtap='saveAction'> 保存全部 </button></view>
+      </view>
+
+      <view wx:if='{{isBusiness}}'>
+        <view class="set-info">
+          <view class="content-title" bindtap='changeInfoState'><text>文字设置</text></view>
+          <view class="setting-list" wx:if='{{showInfo}}'>
+            <view class="setting-item" wx:for='{{businessList}}' wx:key='index'>
+              <text>{{item.businessName}}：</text>
+              <input type="text" placeholder='请输入' />
+            </view>
+          </view>
+        </view>
+
+        <view class="set-background">
+          <view class="set-title" bindtap='changeMainTitleState'><text>背景设置</text></view>
+          <view wx:if='{{showMainTitle}}'>
+            <view class="main-title-list" wx:if='{{delete}}'>
+              <view class="main-title-item" wx:for='{{businessMainTitleList}}' wx:key='index' bindlongpress='selectAction'><image src='{{item.background}}' mode='widthFix'></image></view>
+            </view>
+            <radio-group class="main-title-list" wx:else>
+              <label class="main-title-item" wx:for='{{businessMainTitleList}}' wx:key='index' for="check-{{index}}">
+                <radio id='check-{{index}}' checked='{{!index}}'></radio>
+                <image src='{{item.background}}' mode='widthFix'></image>
+              </label>
+            </radio-group>
+          </view>
+        </view>
+
+        <view class="save-action"><button bindtap='saveAction'> 保存全部 </button></view>
+      </view>
+
+  </view>
+
+  <view class="footer"></view>
+
+</view>

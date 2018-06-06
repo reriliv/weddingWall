@@ -1,0 +1,22 @@
+page{ background: #fff; }
+
+.header, .content, .footer{ border-top: 2rpx solid rgb(229, 229, 229); }
+.header, .footer{ display: flex; justify-content: space-between; align-items: center; height: 98rpx; }
+/* 头部 */
+.header{ padding: 0 20rpx; }
+
+
+/* 正文 */
+.content{ overflow: hidden; }
+.music-item{ display: flex; justify-content: space-between; align-items: center; padding: 0 20rpx; height: 78rpx; border-bottom: 2rpx solid rgb(229, 229, 229); }
+.music-item checkbox{ width: 300px; }
+.music-player{ position: relative; width: 78rpx; height: 78rpx; line-height: 78rpx; overflow: hidden; }
+.music-player audio{ position: absolute; top: -27.5rpx; left: -27.5rpx; background: #fff; }
+.music-player audio::before{ background: #fff; }
+/*.play-music, .pause-music{ margin: 8rpx; width: 38rpx; height: 38rpx; }*/
+/*.play-music button{ margin: 0; width: 100%; height: 100%; }*/
+
+/* 底部 */
+.footer{ padding: 0 28rpx; }
+.save-action{ width: 125rpx; height: 62rpx; border-radius: 10rem; background: rgb(255, 161, 162); }
+.save-action button{ line-height: 62rpx; color: rgb(255, 255, 255); font-size: 32rpx; }

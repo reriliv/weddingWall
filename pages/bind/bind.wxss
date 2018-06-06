@@ -1,0 +1,47 @@
+page{ background: #eee; }
+
+/* 头部样式 */
+.header{ padding: 77rpx 0 15rpx; width: 100%; text-align: center; }
+.acount-image{ margin: 0 auto 15rpx; width: 90rpx; height: 90rpx; border-radius: 10rem; overflow: hidden; }
+.acount-name{  }
+.acount-name text{ color: #9c9c9c; font-size: 22rpx; }
+
+
+/* 正文样式 */
+.content{  }
+form{ width: 100%; }
+.input-item{ display: flex; justify-content: center; align-items: center; margin: 0 auto; padding: 0 20rpx; width: 670rpx; height: 74rpx; line-height: 74rpx; background: #fff; border-radius: 8rpx; }
+.input-item:nth-child(2){ justify-content: flex-start; }
+.phone-icon{ width: 20rpx; height: 30rpx; }
+.phone-input{ margin: 0 17rpx; width: 412rpx; }
+.phone-input input{ width: 100%; background: none; font-size: 32rpx; color: rgb(54, 54, 54); }
+.input-placeholder{ color: #eee; }
+.identify-btn{background: #04be02; border-radius: 10rem; }
+.identify-btn button{ padding: 0; width: 200rpx; height: 44rpx; line-height: 44rpx; text-align: center; font-size: 26rpx; color: #fff; }
+.guard-icon{ width: 22rpx; height: 30rpx; }
+.identify-input{ margin: 0 17rpx; width: 612rpx; }
+.identify-input input{ font-size:32rpx; color: rgb(54, 54, 54); }
+.tips{ margin-bottom: 12rpx; padding: 8rpx 42rpx; height: 36rpx; line-height: 36rpx; }
+.tips text{ font-size: 22rpx; color: #ff2b2d; }
+
+.bind-btn{ margin: 0 auto; width: 710rpx; border-radius: 10rpx; }
+.static{ background: #9c9c9c; }
+.active{ background: #ff2a2d; }
+.bind-btn button{ height: 62rpx; line-height: 62rpx; font-size: 32rpx; color: #fff; }
+
+.success-panel, .failure-panel{ position: fixed; z-index: 10000; top: 200rpx; left: 64rpx; padding: 85rpx 0 30rpx; width: 622rpx; background: #fff; border-radius: 40rpx; }
+.failure-btn{ position: absolute; top: -50rpx; left: 257rpx; width: 100rpx; height: 100rpx; }
+.failure-btn button{ margin: 0; padding: 0; width: 100%; height: 100%; }
+.success-content, .failure-content{ text-align: center; }
+.bind-message{ font-size: 58rpx; color: #363636; }
+.success-content-msg, .failure-content-msg{ margin-top: 66rpx; font-size: 26rpx; color: #b9b9b9; }
+.success-content-suggest, .failure-content-suggest{ margin-top: 32rpx; font-size: 42rpx; color: #9c9c9c; }
+.failure-image{ margin: 32rpx auto 0; width: 319rpx; height: 260rpx; }
+.success-image{ margin: 32rpx auto 0; width: 212rpx; height: 213rpx; animation: rotateLoading 10s infinite; animation-timing-function: linear; }
+@keyframes rotateLoading{ from{ transform: rotate(0deg); } to{ transform: rotate(360deg); } }
+
+
+/* 底部样式 */
+.footer{  }
+
+.shade-content{ position: fixed; top: 0; left: 0; z-index: 1000; width: 100%; height: 100%; background: #000; opacity: 0.64; }

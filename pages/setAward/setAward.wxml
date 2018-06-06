@@ -1,0 +1,63 @@
+<view class="container">
+
+  <view class="header">
+    <!-- 顶部按钮 -->
+    <button class="increase-award-action" bindtap='increaseAwardAction'>
+      <image src='../../src/image/increase_icon.png' mode='widthFix'></image>
+      <text> 新增奖项 </text>
+    </button>
+    <text class='cut-off'></text>
+    <button class="copy-award-action" bindtap='copyAwardAction'>
+      <image src='../../src/image/copy_icon.png' mode='widthFix'></image>
+      <text> 复制奖项到弹幕抽奖 </text>
+    </button>
+  </view>
+
+  <view class="content">
+    <view class="scroll-content" style='height: {{contentHeight}}px'>
+      <view class="award-list" >
+
+        <block wx:for='{{awardList}}' wx:key='index'>
+          <view class="award-item">
+            <view class="award-title"><text> {{item.title}} </text></view>
+            <view class="award-content">
+              <view class="award-name">
+                <text> 奖项名称： </text>
+                <input type="text" placeholder='请输入奖项名，如 金奖' placeholder-style='color: #9c9c9c;' bindinput='awardNameInput'/>
+              </view>
+              <view class="award-icon">
+                <text> 奖项图标： </text>
+                <view class="award-icon-list">
+                  <radio-group>
+                    <block wx:for='{{awardIconList}}' wx:key='index'>
+                      <label for="{{'awardIcon'+index}}"><radio id='{{"awardIcon" + index}}'></radio><image src='{{item.iconSrc}}' mode='widthFix'></image></label>
+                    </block>
+                  </radio-group>
+                  <button class='custom-action' bindtap='customAction'>
+                    <image src='../../src/image/custom_icon.png' mode='widthFix'></image>
+                    <text> 自定义 </text>
+                  </button>
+                </view>
+              </view>
+              <view class="award-explain">
+                <text> 奖品描述： </text>
+                <input type="text" placeholder='请输入奖品描述，如 888元红包' placeholder-style='color: #9c9c9c;' bindinput='awardExplainInput'/>
+              </view>
+              <view class="award-people-num">
+                <text> 抽取人数： </text>
+                <input type="text" placeholder='请输入该奖项的个数' placeholder-style='color: #9c9c9c;' bindinput='awardPeopleNumberInput'/>
+              </view>
+              <view class="save-setting"><button bindtap='saveAwardSetting' id='{{item.number}}'> 保存设置 </button></view>
+            </view>
+          </view>
+        </block>
+
+      </view>
+    </view>
+  </view>
+
+  <view class="footer">
+    <!--  -->
+  </view>
+
+</view>

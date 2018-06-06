@@ -1,0 +1,20 @@
+<view class="container">
+  <view class="header">
+    <view class="play-title"><text>播放列表</text></view>
+    <view class="play-explain"><text>试听</text></view>
+  </view>
+  <view class="content" style='height: {{contentHeight}}px'>
+    <view class="music-panel">
+      
+      <view class="music-item" wx:for='{{musicList}}' wx:key='index'>
+        <checkbox>{{item.musicName}}</checkbox>
+        <!-- <image class="play-music" bindtap='musicPlay' id='{{item.musicSrc}}' src='{{playIcon}}' mode='widthFix' wx:if='{{!isPlay}}'><button></button></image> -->
+        <!-- <image class="pause-music" bindtap='musicPause' src='{{pauseIcon}}' mode='widthFix' wx:else><button></button></image> -->
+        <view class='music-player'><audio poster='../../src/image/background.png' controls src="{{item.musicSrc}}"></audio></view>
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+    <view class="save-action"><button>保存</button></view>
+  </view>
+</view>

@@ -1,0 +1,25 @@
+/*  重写 checkbox 样式  */
+label{ position: relative; }
+checkbox{ position: absolute; top: 0; right: 0; }
+view{ width: 100rpx; height: 100rpx; background: #000; }
+checkbox .wx-checkbox-input{
+  border-radius: 50%;
+  width: 40rpx;
+  height: 40rpx;
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+  border: none;
+  background: red;
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+  border-radius: 50%;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  font-size:30rpx;
+  color:#fff;
+  background: transparent;
+  transform:translate(-50%, -50%) scale(1);
+  -webkit-transform:translate(-50%, -50%) scale(1);
+}

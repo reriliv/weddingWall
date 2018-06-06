@@ -1,0 +1,3 @@
+[2018-04-18 14:42:44] layer "+": Expected Either a default asset specification or a layer asset specification but "+" found.
+[2018-04-18 14:42:44] layer "Mr.Li": Unsupported extension: li
+[2018-04-18 14:42:44] layer "Miss.Wang": Unsupported extension: wang

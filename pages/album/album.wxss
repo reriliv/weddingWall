@@ -1,0 +1,39 @@
+page{ background: #fff; }
+
+/* 我的相册 */
+.content, .footer{ border-top: 2rpx solid rgb(229, 229, 229); }
+
+
+/* 正文样式 */
+.content{ overflow: auto; }
+.image-panel{ width: 100%; }
+.panel-show{ display: flex; justify-content: flex-start; flex-wrap: wrap; align-items: center; width: 100%; }
+.upload-btn{ /* padding: 44rpx; */ background: rgb(238, 238, 238); }
+.upload-btn button{ display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; }
+.upload-btn image{ width: 100rpx; height: 100rpx; }
+.image-item{ position: relative; }
+checkbox{ position: absolute; right: 0; opacity: 0.62; }
+checkbox .wx-checkbox-input{ width: 34rpx; height: 34rpx; border: 2rpx solid #fff; border-radius: 50%; background: #000; }
+checkbox .wx-checkbox-input.wx-checkbox-input-checked{ width: 34rpx; height: 34rpx; border-radius: 50%; }
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{ text-align: center; line-height: 32rpx; font-size: 34rpx; color: #fff; font-weight: bold; }
+.panel-explain{ margin: 100rpx auto 50rpx; text-align: center; }
+.panel-explain text{ font-size: 26rpx; color: rgb(255, 43, 45); }
+
+
+/*底部样式*/
+.footer{ display: flex; justify-content: space-between; height: 100rpx; }
+.mode-content{ position: relative; height: 100%; }
+.album-mode{ position: absolute; top: -176rpx; left: 0; background: rgb(255, 255, 255); /* border: 2rpx solid rgb(210, 210, 210); */ }
+.album-mode button{ margin: 0; padding: 0; width: 174rpx; height: 58rpx; line-height: 58rpx; border-width: 2rpx; border-style: solid; border-color: rgb(210, 210, 210) rgb(210, 210, 210) transparent transparent; font-size: 32rpx; color: #6c6c6c;}
+/*.album-mode button:last-child{ border-bottom: 0; }*/
+.select-mode{ display: flex; justify-content: center; align-items: center; width: 178rpx; height: 100%; }
+.select-mode image{ display: inline-block; vertical-align: middle; width: 25rpx; height: 24rpx; }
+.select-mode text{ display: inline-block; vertical-align: middle; margin-right: 10rpx; line-height: 50rpx; font-size: 32rpx; color: rgb(54, 54, 54); }
+.manage-panel{ position: relative; }
+.action-panel{ position: absolute; top: -142rpx; right: 0; background: rgb(255, 255, 255); }
+.action-panel button{ padding: 0; margin: 0; width: 228rpx; border-width: 2rpx; border-style: solid; border-color: rgb(210, 210, 210) transparent transparent rgb(210, 210, 210); font-size: 26rpx; }
+.album-manage{ width: 228rpx; text-align: center; }
+.album-manage text{ margin-right: 10rpx; height: 100%; line-height: 100rpx; font-size: 32rpx; color: rgb(54, 54, 54); }
+.album-manage image{ display: inline-block; vertical-align: middle; width: 25rpx; height: 24rpx; }
+.delete-action, .cancel-action{ margin: 0; line-height: 100rpx; font-size: 32rpx; }
+.delete-action{ color: rgb(255,43, 45); }

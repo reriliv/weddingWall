@@ -1,0 +1,42 @@
+page{ background: #fff; }
+
+.header{ background: #eee; border-width: 1rpx; border-style: solid; border-color: #bfbfbf transparent #bfbfbf transparent; }
+.date-select{ display: flex; justify-content: space-between; align-items: center; margin: 0 20rpx 0; text-align: left; }
+.date-select button{ margin: 0; padding: 0; width: 240rpx; height: 100%; }
+.date-select text{ display: inline-block; vertical-align: middle; height: 98rpx; line-height: 98rpx; font-size: 32rpx; color: #363636; }
+.date-select image{ display: inline-block; vertical-align: middle; width: 23rpx; height: 14rpx; }
+.date-select checkbox{ line-height: 98rpx; font-size: 24rpx; color: #363636; }
+.date-select checkbox .wx-checkbox-input{ width: 22rpx; height: 22rpx; border: 1rpx solid #bfbfbf; }
+.date-select checkbox .wx-checkbox-input-checked::before{ font-size: 28rpx; }
+
+
+
+.content{ margin-bottom: 115rpx; }
+.record-list{ margin: 0 20rpx 0; }
+.record-item{ display: flex; justify-content: space-between; align-items: center; height: 128rpx; border-bottom: 2rpx solid #dcdcdc; }
+.record-vistor-info{ display: flex; justify-content: space-between; align-items: center; }
+.visitor-head{ width: 80rpx; height: 80rpx; border-radius: 10rem; overflow: hidden; }
+.visitor-info{ margin-left: 20rpx; }
+.visitor-info view:first-child text{ font-size: 26rpx; color: #363636; }
+.visitor-info view:last-child text{ font-size: 22rpx; color: #363636; }
+.reacordLabel{ width: 47rpx; height: 28rpx; line-height: 28rpx; background: #ff9e2b; border-radius: 4rpx; font-size: 20rpx !important; color: #fff !important; }
+.recordPrizeName{ font-size: 32rpx; font-weight: bold; color: #363636; }
+.shade-content{ position: fixed; left: 0; top: 0; z-index: 9999999; width: 100%; height: 100%; background: #000; opacity: 0.65; }
+.date-panel{ position: fixed; left: 51rpx; top: 315rpx; z-index: 10000000; width: 648rpx; height: 648rpx; background: #fff; overflow: hidden; }
+.date-panel-title{ margin: 0 33rpx 9rpx; height: 108rpx; line-height: 108rpx; font-size: 52rpx; color: #363636; }
+.date-panel-selector{ display: flex; justify-content: space-around; align-items: center; padding: 60rpx 120rpx; width: 410rpx; border-top: 10rpx solid #f84a5e; border-bottom: 4rpx solid #f84a5e; }
+.date-year-swiper, .date-month-swiper{ position: relative; width: 136rpx; height: 315rpx; }
+.date-year-swiper:before, .date-month-swiper:before{ content: ' '; position: absolute; top: 105rpx; left: 0rpx; width: 136rpx; height: 4rpx; background: #f84a5e; }
+.date-year-swiper:after, .date-month-swiper:after{ content: ' '; position: absolute; bottom: 105rpx; left: 0rpx; width: 136rpx; height: 4rpx; background: #f84a5e; }
+
+.date-year-swiper swiper-item, .date-month-swiper swiper-item{ text-align: center; line-height: 105rpx; font-size: 40rpx; color: #363636; }
+/*.date-year-swiper swiper-item .wx-swiper-item-actived, .date-month-swiper swiper-item .wx-swiper-item-actived{ color: #363636; }*/
+.date-panel-action{ display: flex; justify-content: center; align-items: center; }
+.date-panel-action button{ margin: 0; padding: 0; width: 322rpx; height: 84rpx; line-height: 82rpx; font-size: 32rpx; color: #9c9c9c; border-right: 2rpx solid #f84a5e; }
+.date-panel-action button:last-child{ border-right: none; border-left: 2rpx solid #f84a5e; color: #363636; }
+
+
+.footer{ position: fixed; bottom: 0; left: 0; width: 100%; }
+.send-packet{ display: flex; justify-content: center; align-items: center; height: 99rpx; background: #fff; border-top: 1rpx solid #ff2b2d; font-size: 28rpx; color: #ff2b2d; }
+.send-packet:active{ background: #eee; }
+.send-packet image{ margin-right: 12rpx; width: 25rpx; height: 32rpx; }

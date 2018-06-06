@@ -1,0 +1,28 @@
+<view class="container">
+  <view class="header">
+    <!-- 头部 -->
+  </view>
+  <view class="content">
+    <!-- 正文 -->
+      <swiper class="show-guide-card"
+              vertical='{{guideSwiper.vertical}}'
+              duration='{{guideSwiper.duration}}'
+              previous-margin='{{guideSwiper.margin}}'
+              next-margin='{{guideSwiper.margin}}'
+              current='{{guideSwiper.index}}'
+              bindchange='changeCardAction'>
+        <block wx:for='{{guideCardList}}' wx:key='index'>
+          <swiper-item>
+            <button bindtap='previewImg' id='{{item.guideCardImg}}'><image src='{{item.guideCardImg}}' mode='widthFix'></image></button>
+          </swiper-item>
+        </block>
+      </swiper>
+    <view class="guide-explain"> 点击图片查看原图 </view>
+    <view class="guide-action">
+      <button class="download-card" bindtap='downLoadCard'> 下载原图 </button>
+    </view>
+  </view>
+  <view class="footer">
+    <!-- 底部 -->
+  </view>
+</view>

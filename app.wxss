@@ -1,0 +1,6 @@
+/**app.wxss**/
+page { margin: 0; padding: 0; background: #eee; }
+image{ display: block; width: 100%; }
+button{ background: none; border-radius: 0; }
+button::after{ border: 0; }
+::-webkit-scrollbar{width: 0;}

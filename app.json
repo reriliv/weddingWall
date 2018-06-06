@@ -1,0 +1,26 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/management/management",
+    "pages/album/album",
+    "pages/music/music",
+    "pages/waitMode/waitMode",
+    "pages/musicPlay/musicPlay",
+    "pages/animate/animate",
+    "pages/bind/bind",
+    "pages/prize/prize",
+    "pages/setAward/setAward",
+    "pages/awardRecord/awardRecord",
+    "pages/guide/guide",
+    "pages/packet/packet",
+    "pages/packetDetail/packetDetail",
+    "pages/webview/webview"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "喜帖吧互动大屏",
+    "navigationBarTextStyle":"black"
+  }
+}
